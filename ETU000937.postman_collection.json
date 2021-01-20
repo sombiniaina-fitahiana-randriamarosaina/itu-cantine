@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "9f64124a-6ea9-4a60-b0e6-8e12365eb4cb",
+		"name": "ETU000937",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - liste Menu du jour",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/menus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"menus"
+					]
+				},
+				"description": "1. Lister le menu du jour (pas besoin d’être connecté)"
+			},
+			"response": []
+		},
+		{
+			"name": "2- a - inscription Etudiant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numETU",
+							"value": "ETU001058",
+							"type": "text"
+						},
+						{
+							"key": "motDePasse",
+							"value": "LavaBe",
+							"type": "text"
+						},
+						{
+							"key": "nom",
+							"value": "Andry",
+							"type": "text"
+						},
+						{
+							"key": "dateNaissance",
+							"value": "30-07-2000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/etudiants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"etudiants"
+					]
+				},
+				"description": "2 a. Inscription (numETU, pwd, nom, date naissance)"
+			},
+			"response": []
+		},
+		{
+			"name": "2- b - connexion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numETU",
+							"value": "ETU000937",
+							"type": "text"
+						},
+						{
+							"key": "motDePasse",
+							"value": "coucou",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/etudiants/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"etudiants",
+						"login"
+					]
+				},
+				"description": "2 b. Connexion"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - c - Modification profil ",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nom\" : \"fitahiana\",\n    \"dateNaissance\" : \"20-12-2000\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/etudiants/ETU00937",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"etudiants",
+						"ETU00937"
+					]
+				},
+				"description": "2- c.Modification profil (nom, date naissance)"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - d - Commander les plats",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numETU",
+							"value": "ETU000937",
+							"type": "text"
+						},
+						{
+							"key": "codePlat",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/commandes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"commandes"
+					]
+				},
+				"description": "2 - d. Commander les plats"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - d - i - Modifier commande",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codePlat\" : \"1\",\n    \"nombre\" : \"2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/commandes/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"commandes",
+						"3"
+					]
+				},
+				"description": "2 - d - i. Modifier commande"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - e - Voir le montant total des plats pour l’étudiant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/commandes/total/ETU000937",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"commandes",
+						"total",
+						"ETU000937"
+					]
+				},
+				"description": "2 - e. Voir le montant total des plats pour l’étudiant"
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Lister les plats et le nombre à préparer par la cantine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/ITU_Cantine/index.php/api/commandes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"ITU_Cantine",
+						"index.php",
+						"api",
+						"commandes"
+					]
+				},
+				"description": "3. Lister les plats et le nombre à préparer par la cantine (pas besoin d’être connecté)"
+			},
+			"response": []
+		}
+	]
+}
